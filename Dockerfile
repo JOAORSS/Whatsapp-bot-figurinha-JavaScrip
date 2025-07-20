@@ -17,9 +17,7 @@ RUN apt-get update --fix-missing && apt-get install -y \
     libxdamage1 \
     libxrandr2 \
     xdg-utils \
-    libgbm1 \
     libgobject-2.0-0 \
-    libgtk-3-0 \
     libpango-1.0-0 \
     libpangocairo-1.0-0 \
     libxshmfence1 \
