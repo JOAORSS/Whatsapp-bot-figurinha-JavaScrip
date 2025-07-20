@@ -62,13 +62,13 @@ function leMensagem() {
       }, 5000);
     }
 
-    if (msg.to == groupId) {
+    if (msg.to == groupId && msg.to == groupId2) {
       console.log(`📥 Mensagem recebida: ${msg.body}`);
     }
 
     
     if (replyed) return;
-    if (msg.from != groupId2) return;
+    if (msg.to != groupId2) return;
     replyed = true;
 
     if (msg.hasMedia) {
