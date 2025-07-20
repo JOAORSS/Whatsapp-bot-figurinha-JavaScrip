@@ -8,6 +8,9 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     libdrm2 \
     libgbm1 \
+    libnspr4 \
+    libcups2 \
+    libgdk-pixbuf2.0-0 \
     ffmpeg \
     --no-install-recommends && \
     apt-get clean && \
