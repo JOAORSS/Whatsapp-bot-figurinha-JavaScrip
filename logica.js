@@ -53,7 +53,7 @@ async function listaGrupos() {
 }
 
 
-function leMensagem() {
+async function leMensagem() {
   client.on('message_create', async msg => {
 
     if (replyed) {
@@ -61,11 +61,6 @@ function leMensagem() {
         replyed = false;
       }, 5000);
     }
-
-    if (msg.from == groupId2 && msg.from == "555198384327@u.us") {
-      console.log(`📥 Mensagem recebida: ${msg.body}`);
-    }
-
     
     if (replyed) return;
     if (msg.from == groupId2) {
@@ -82,7 +77,12 @@ function leMensagem() {
           console.log(`🖼️ Imagem salva como: ${nomeArquivo}`);
 
           const sticker = new MessageMedia(media.mimetype, media.data, nomeArquivo);
-          await msg.reply(sticker, undefined, { sendMediaAsSticker: true });
+          try {
+            await msg.reply(sticker, undefined, { sendMediaAsSticker: true });
+            console.log('✅ Sticker enviado!');
+          } catch (err) {
+            console.error('❌ Erro ao enviar sticker:', err);
+          }
         }
       }
     } else return;
