@@ -7,14 +7,15 @@ const port = 8080;
 
 app.use(cors());
 
-app.get('/start', (req, res) => {
-  const controller = req.query.controller;
+// app.get('/start', (req, res) => {
+//   const controller = req.query.controller;
 
-  startBot(controller);
+//   startBot(controller);
 
-  res.json({ status: 'Bot iniciado com controller: ' + controller });
-});
+//   res.json({ status: 'Bot iniciado com controller: ' + controller });
+// });
 
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
+  startBot("start")
 });
