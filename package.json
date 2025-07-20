@@ -1,4 +1,7 @@
 {
+  "build": [
+    "bash install-packages.sh"
+  ],
   "scripts": {
     "start": "node index.js"
   },
