@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM node:20-bullseye
 
 RUN apt-get update --fix-missing && apt-get install -y \
     wget \
