@@ -1,11 +1,9 @@
 FROM node:20-slim
 
-# Instala dependências do Chromium
-RUN apt-get update && apt-get install -y \
+RUN apt-get update --fix-missing && apt-get install -y \
     wget \
     ca-certificates \
     fonts-liberation \
-    libappindicator3-1 \
     libasound2 \
     libatk-bridge2.0-0 \
     libatk1.0-0 \
@@ -30,17 +28,8 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Cria diretório de trabalho
 WORKDIR /app
-
-# Copia arquivos do projeto
 COPY . .
-
-# Instala dependências do Node.js
 RUN npm install
-
-# Porta que o app vai rodar
 EXPOSE 8080
-
-# Comando para iniciar o app
 CMD ["npm", "start"]
