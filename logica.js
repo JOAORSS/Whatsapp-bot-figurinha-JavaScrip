@@ -6,6 +6,7 @@ const { LocalAuth, MessageMedia } = whatsappWeb;
 let client;
 let isReady = false;
 const groupId = '120363420574836136@g.us';
+const groupId2 = '120363024588069716@g.us';
 let replyed = false;
 
 export async function startBot(controller) {
@@ -60,9 +61,14 @@ function leMensagem() {
         replyed = false;
       }, 5000);
     }
+
+    if (msg.to == groupId) {
+      console.log(`📥 Mensagem recebida: ${msg.body}`);
+    }
+
     
     if (replyed) return;
-    if (msg.from !== groupId) return;
+    if (msg.from != groupId2) return;
     replyed = true;
 
     if (msg.hasMedia) {
