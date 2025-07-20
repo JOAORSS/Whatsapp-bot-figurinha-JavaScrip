@@ -62,28 +62,30 @@ function leMensagem() {
       }, 5000);
     }
 
-    if (msg.to == groupId && msg.to == groupId2) {
+    if (msg.from == groupId2 && msg.from == "555198384327@u.us") {
       console.log(`📥 Mensagem recebida: ${msg.body}`);
     }
 
     
     if (replyed) return;
-    if (msg.to != groupId2) return;
-    replyed = true;
+    if (msg.from == groupId2) {
+      
+      replyed = true;
 
-    if (msg.hasMedia) {
-      const media = await msg.downloadMedia();
+      if (msg.hasMedia) {
+        const media = await msg.downloadMedia();
 
-      if (media) {
-        const extensao = media.mimetype.split('/')[1];
-        const nomeArquivo = `imagem_${Date.now()}.${extensao}`;
+        if (media) {
+          const extensao = media.mimetype.split('/')[1];
+          const nomeArquivo = `imagem_${Date.now()}.${extensao}`;
 
-        console.log(`🖼️ Imagem salva como: ${nomeArquivo}`);
+          console.log(`🖼️ Imagem salva como: ${nomeArquivo}`);
 
-        const sticker = new MessageMedia(media.mimetype, media.data, nomeArquivo);
-        await msg.reply(sticker, undefined, { sendMediaAsSticker: true });
+          const sticker = new MessageMedia(media.mimetype, media.data, nomeArquivo);
+          await msg.reply(sticker, undefined, { sendMediaAsSticker: true });
+        }
       }
-    }
+    } else return;
   });
 }
 
