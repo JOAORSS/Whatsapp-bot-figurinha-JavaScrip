@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     libasound2 \
     libdrm2 \
     libgbm1 \
+    ffmpeg \
     --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
