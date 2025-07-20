@@ -68,7 +68,7 @@ function leMensagem() {
 
     
     if (replyed) return;
-    if (msg.to != groupId2) return;
+    if (msg.from != groupId2) return;
     replyed = true;
 
     if (msg.hasMedia) {
