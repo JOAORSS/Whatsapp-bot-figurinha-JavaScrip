@@ -51,7 +51,6 @@ async function listaGrupos() {
   });
 }
 
-
 async function leMensagem() {
   client.on('message_create', async msg => {
 
