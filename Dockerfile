@@ -19,5 +19,4 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY . .
 RUN npm install
-EXPOSE 8080
 CMD ["npm", "start"]
